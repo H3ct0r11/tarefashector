@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Kanban - Héctor Ryan</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header class="header">
+      <div class="logo">
+        ☑ Tarefas Hector
+      </div>
+
+      <div class="stats">
+
+
+
+        <div class="stat">
+          <span class="bagde fazer" id="fazerCount">0</span>
+          A Fazer
+        </div>
+
+        <div class="stat">
+          <span class="bagde andamento" id="andamentoCount">0</span>
+          Andamento
+        </div>
+
+        <div class="stat">
+          <span class="bagde feito" id="feitoCount">0</span>
+          Feito
+        </div>
+
+        <div class="stat">
+          <span class="bagde total" id="totalCount">0</span>
+          Total
+        </div>
+      </div>
+      <button class="btn-filter" onclick="mostrarFiltro()">🔎 Filtrar </button>
+      <button class="btn-new" onclick="mostrarFormulario()">+ Nova Tarefa</button>
+    </header>
+
+    <section class="filter-box" id="filterBox">
+      <label for="filtro">Filtrar tarefas</label>
+
+      <select id="filtro" onchange="filtrarTarefas()">
+        <option value="todas">Todas</option>
+        <option value="afazer">A fazer</option>
+        <option value="andamento">Andamento</option>
+        <option value="feito">Feito</option>
+        <option value="alta">Alta</option>
+        <option value="media">Media</option>
+        <option value="baixa">Baixa</option>
+      </select>
+
+    </section>
+
+    <section class="form-card" id="formulario">
+      <h1> ➕ Nova tarefa</h1>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="titulo">Título da tarefa *</label>
+          <input type="text" id="titulo" placeholder="Ex: Desenvolver site">
+        </div>
+
+        <div class="form-group">
+          <label for="prioridade">Prioridade</label>
+          <select id="prioridade">
+            <option value="baixa">Baixa</option>
+            <option value="media">Media</option>
+            <option value="alta">Alta</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="tags">Tags separadas por virgulas </label>
+          <input type="text" id="tags" placeholder="Ex: Designer, frontend, backend">
+        </div>
+
+        <div class="form-group">
+          <label for="data">Data de Vencimento </label>
+          <input type="date" id="data">
+        </div>
+
+
+      </div>
+      <div class="form-group">
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" placeholder="Descreva os detalhes da tarefa"></textarea>
+      </div>
+
+      <div class="buttons">
+        <button class="btn-cancel" onclick="esconderFormulario()">Cancelar</button>
+        <button class="btn-save" onclick="criarCard()">Salvar tarefa</button>
+
+      </div>
+    </section>
+
+    <section class="board">
+      <div class="column" id="todo">
+        <h2 class="column-title">
+          <span class="circle"></span>
+          A Fazer
+        </h2>
+      </div>
+      <div class="column" id="doing">
+        <h2 class="column-title">
+          <span class="circle andamento"></span>
+          Em Andamento
+        </h2>
+      </div>
+      <div class="column" id="done">
+        <h2 class="column-title">
+          <span class="circle feito"></span>
+          Feito
+        </h2>
+      </div>
+
+
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
